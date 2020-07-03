@@ -1,0 +1,13 @@
+{% extends 'survey/base.html' %}
+{% block content %}
+<h3 class="my-3">Update User</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{user_form.as_table}}
+        </table>
+        <br>
+        <a class="btn btn-secondary  my-3 mr-3" href="{% url 'user-list' %}" role="button">Back</a>
+        <button type="submit" class="btn btn-primary">Update User</button>
+    </form>
+{% endblock content %}

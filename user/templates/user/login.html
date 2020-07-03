@@ -1,0 +1,22 @@
+{% extends 'survey/base.html' %}
+
+{% block content %}
+<h3 class='my-3'>Login</h3>
+<p>{{error}}</p>
+    <form method="POST" >
+    {% csrf_token %}
+        <div class="input-group mb-3" style="width: 30rem;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+             </div>
+             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name='username' id='username' required>
+        </div>
+        <div class="input-group mb-3" style="width: 30rem;">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+             </div>
+             <input type="password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"  name='password' id='password' required>
+        </div>
+        <button class='btn btn-success mt-3' type="submit">Login</button>
+    </form>
+{% endblock content %}

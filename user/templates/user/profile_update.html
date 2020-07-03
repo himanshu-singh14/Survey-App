@@ -1,0 +1,12 @@
+{% extends 'survey/base.html' %}
+{% block content %}
+<h3 class="my-3">Edit</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <button type="submit" class="btn btn-warning float-left">Update</button>
+    </form>
+{% endblock content %}

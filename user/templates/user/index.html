@@ -1,0 +1,31 @@
+{% extends 'survey/base.html' %}
+
+{% block content %}
+
+    {% if request.user.id == 1 %}
+        <a class="btn btn-secondary float-right my-3" href="{% url 'user-add' %}" role="button">Add User</a>
+    {% endif %}
+
+    <h2 class='my-3'>List of {{title}} </h2>
+    <div class="card" style="width: 40rem;">
+
+    {% if users %}
+        <ul class="list-group list-group-flush">
+            {% for user in users %}
+                <li class="list-group-item">
+                    <b>{{user.first_name}} &nbsp; {{user.last_name}}</b>
+                    {% if request.user.id == user.id %}
+                        <a class="btn btn-outline-danger float-right" href="{% url 'user-delete' user.id %}" role="button">Delete</a> 
+                        <a class="btn btn-outline-warning float-right mx-2" href="{% url 'user-edit' user.id %}" role="button">Edit</a>
+                    {% endif %}
+                        <a class="btn btn-outline-info float-right" href="{% url 'user-details' user.id %}" role="button">Details</a>
+                </li>
+            {% endfor %} 
+    {% else %}
+            <li class="list-group-item">There is no user available.</li>
+        </ul>
+    {% endif %}
+    
+    </div>
+
+{% endblock content %}
